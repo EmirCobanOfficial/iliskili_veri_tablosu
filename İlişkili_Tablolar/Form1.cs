@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +22,7 @@ namespace İlişkili_Tablolar
         private void Form1_Load(object sender, EventArgs e)
         {
             baglan.Open();
-            SqlCommand komut = new SqlCommand("Select SehirAd From Tbl_Sehirler",baglan);
+            SqlCommand komut = new SqlCommand("Select SehirAd From Tbl_Sehirler", baglan);
             SqlDataReader dr = komut.ExecuteReader();
             while (dr.Read())
             {
@@ -35,8 +35,8 @@ namespace İlişkili_Tablolar
         {
             comboBox2.Items.Clear();
             baglan.Open();
-            SqlCommand komut2 = new SqlCommand("Select ilcead from tbl_ilçeler where ilid=@1",baglan);
-            komut2.Parameters.AddWithValue("@p1", comboBox1.SelectedIndex +1);
+            SqlCommand komut2 = new SqlCommand("Select ilcead from Tbl_İlceler where ilid=@p1", baglan);
+            komut2.Parameters.AddWithValue("@p1", comboBox1.SelectedIndex + 1);
             SqlDataReader dr2 = komut2.ExecuteReader();
             while (dr2.Read())
             {
